@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 local isActivated = false
 
 -- Register the key press event
@@ -7,9 +8,11 @@ RegisterKeyMapping('toggleseatbelt', 'Toggle Seatbelt', 'keyboard', 'B')
 RegisterCommand('toggleseatbelt', function()
     if IsPedInAnyVehicle(PlayerPedId(), false) then
         isActivated = not isActivated
-        local message = isActivated and "Je hebt uw gordel aangedaan" or "Je hebt uw gordel uitgedaan"
+
         if isActivated then
-            TriggerEvent("QBCore:Notify", message)
+            QBCore.Functions.Notify("Je hebt uw gordel aangedaan", "success")
+        else
+            QBCore.Functions.Notify("Je hebt uw gordel uitgedaan", "error")
         end
     else
         print("not in vehicle")
