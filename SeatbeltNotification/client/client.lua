@@ -5,7 +5,7 @@ RegisterKeyMapping('toggleseatbelt', 'Toggle Seatbelt', 'keyboard', 'B')
 
 --Register the command, but makes it so you can't toggle it using the command
 RegisterCommand('toggleseatbelt', function()
-    if IsPedInAnyVehicle(ped, false) then
+    if IsPedInAnyVehicle(PlayerPedId(), false) then
         isActivated = not isActivated
         local message = isActivated and "Je hebt uw gordel aangedaan" or "Je hebt uw gordel uitgedaan"
         if isActivated then
