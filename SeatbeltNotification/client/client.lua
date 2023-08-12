@@ -9,9 +9,7 @@ RegisterCommand('toggleseatbelt', function()
         isActivated = not isActivated
         local message = isActivated and "Je hebt uw gordel aangedaan" or "Je hebt uw gordel uitgedaan"
         if isActivated then
-            QBCore.Functions.Notify(message, "success")
-        else
-            QBCore.Functions.Notify(message, "error")
+            TriggerEvent("QBCore:Notify", message)
         end
     else
         print("not in vehicle")
