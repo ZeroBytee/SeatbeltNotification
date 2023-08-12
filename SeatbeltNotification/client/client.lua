@@ -11,5 +11,7 @@ RegisterCommand('toggleAction', function()
         else
             QBCore.Functions.Notify(message, "error")
         end
+    else
+        print("not in vehicle")
     end
 end, false)
